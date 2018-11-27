@@ -13,7 +13,7 @@ public class PizzaApp {
 
         //Add new product
         try {
-            int id = (int) Calendar.getInstance().getTimeInMillis(); //use this id
+            int id = (int)Calendar.getInstance().getTimeInMillis(); //use this id
             Product product = new Product(id, "Name", "Detail", 100);
             halper.addNewProduct(product);
         } catch (SQLException e) {
@@ -23,6 +23,7 @@ public class PizzaApp {
         //Add New Order
         try {
             int id = (int) Calendar.getInstance().getTimeInMillis(); //use this id
+
             Order order = new Order(id, 1, "Kartik Patel", "6352122123");
             halper.addNewOrder(order);
         } catch (SQLException e) {
@@ -51,9 +52,10 @@ public class PizzaApp {
 
         //Get All Orders
         try {
-            ArrayList<Order> products = halper.getAllOrder();
-            for (Order product : products) {
-                System.out.println(product.getId() + " | " + product.getProductID() + " | " + product.getCustomerName() + " | " + product.getCustomerNumber() + " | ");
+            ArrayList<Order> allOrder = halper.getAllOrder();
+
+            for (Order order : allOrder) {
+                System.out.println(order.getId() + " | " + order.getProductID() + " | " + order.getCustomerName() + " | " + order.getCustomerNumber() + " | ");
             }
         } catch (SQLException e) {
             e.printStackTrace();
